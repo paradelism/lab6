@@ -3,28 +3,17 @@
 using namespace std;
 
 int main() {
-    int amount;
-    int choice;
-    cout << "Hi there, it's currency converter menu\n";
-    cout << "Choose what you want to convert:\n";
-    cout << "Hrivnas to dollars(1)\n";
-    cout << "Hrivnas to euros(2)\n";
-    cout << "Enter your choice: ";
-    cin >> choice;
-
-    if (choice == 1) {
-        cout << "Enter the amount of hrivnas: ";
-        cin >> amount;
-        cout << "hrivnas->dollars : " << amount/38.00 << " dollars";
+    int sum=0;
+    int desatky, sotni, odynytsi;
+    for (int i = 100; i < 1000; i++) {
+        odynytsi = (i % 10);
+        desatky = (i % 100) / 10;
+        sotni = i / 100;
+        if (odynytsi == desatky || odynytsi == sotni || desatky == sotni) {
+            sum++;
+        }
     }
-    else if (choice == 2) {
-        cout << "Enter the amount of hrivnas: ";
-        cin >> amount;
-        cout << "hrivnas->euros : " << amount/40.00 << " euros";
-    }
-    else {
-        cout << "Invalid choice!";
-    }
+    cout << sum;
 
     return 0;
 }
