@@ -3,38 +3,27 @@
 using namespace std;
 
 int main() {
-    srand(time(0)); // Ініціалізація генератора випадкових чисел
-    int secretNumber = rand() % 500 + 1; // Генеруємо випадкове число в діапазоні від 1 до 500
-    int guess, attempts;
-    clock_t start, end;
-    double elapsedTime;
+    int amount;
+    int choice;
+    cout << "Hi there, it's currency converter menu\n";
+    cout << "Choose what you want to convert:\n";
+    cout << "Hrivnas to dollars(1)\n";
+    cout << "Hrivnas to euros(2)\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
 
-    cout << "Welcome to Guess the Number game!\n";
-    cout << "I've chosen a number between 1 and 500. Try to guess it!\n";
-
-    start = clock(); // Початок відліку часу
-
-    for (attempts = 1; ; attempts++) {
-        cout << "Enter your guess (or 0 to quit): ";
-        cin >> guess;
-
-        if (guess == 0) {
-            cout << "You've quit the game.\n";
-            return 0;
-        }
-        else if (guess < secretNumber) {
-            cout << "Too low! Try again.\n";
-        }
-        else if (guess > secretNumber) {
-            cout << "Too high! Try again.\n";
-        }
-        else {
-            end = clock(); // Кінець відліку часу
-            elapsedTime = double(end - start) / CLOCKS_PER_SEC; // Обчислення часу, який пройшов для вгадування
-            cout << "Congratulations! You've guessed the number " << secretNumber << " in " << attempts << " attempts.\n";
-            cout << "It took you " << elapsedTime << " seconds.\n";
-            break;
-        }
+    if (choice == 1) {
+        cout << "Enter the amount of hrivnas: ";
+        cin >> amount;
+        cout << "hrivnas->dollars : " << amount/38.00 << " dollars";
+    }
+    else if (choice == 2) {
+        cout << "Enter the amount of hrivnas: ";
+        cin >> amount;
+        cout << "hrivnas->euros : " << amount/40.00 << " euros";
+    }
+    else {
+        cout << "Invalid choice!";
     }
 
     return 0;
